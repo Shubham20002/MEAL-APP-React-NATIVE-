@@ -9,7 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
 import MealDetailSceen from './screens/MealDetailsScreen';
 import FavoritesScreen from './screens/FavoritesScreen';
-
+import FavoritesContextProvider from './store/context/favorites-context';
 export default function App() {
   const Stack=createNativeStackNavigator()
   const Drawer = createDrawerNavigator();
@@ -49,6 +49,7 @@ function DrawerNavigator() {
   return (
     <>
     <StatusBar style='light'/>
+    <FavoritesContextProvider>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
         headerStyle:{backgroundColor:'#351401'},
@@ -69,7 +70,7 @@ function DrawerNavigator() {
     
   
     </NavigationContainer>
-  
+    </FavoritesContextProvider>
     </>
   );
 }
